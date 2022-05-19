@@ -1,22 +1,50 @@
 import Filmes from "./Filmes"
 import { useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components'
 
 export default function Main() {
 
     
     return (
         <div className='Main'>
-            <div className='HeaderMain'> 
+            <HeaderMain> 
                 <p> Selecione o filme </p> 
-            </div>
-            <div className='ListaFilmes'></div>
+            </HeaderMain>
+            <Filmes >  </Filmes>
             <div className='Horarios'></div>
             <div className="Assento"></div>
-            <Filmes>
+            
 
-            </Filmes>
-            <Filmes id={1} nome={'Enola Holmes'} url={"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg"}/>
+          
         </div>
     )
 }
+
+
+//--------------------------------------Styled Components ------------------------------------------------------
+const HeaderMain = styled.div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    width: 375px;
+    margin-top: 67px;
+    background: #E5E5E5;
+
+p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    color: #293845;
+
+}
+
+`

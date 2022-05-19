@@ -1,22 +1,46 @@
 import axios from 'axios'
+import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 
 export default function Filme(props) {
 
-    const [items, setItems] = useState([])
+    const [filmes, setFilmes] = useState([])
+    const [id, setId] = useState([])
 
     useEffect(() => {
 
         const request = axios.get('https://mock-api.driven.com.br/api/v5/cineflex/movies')
         request.then(response => {
-            setItems(response.data)
+            setFilmes(response.data)
         })
 
     },[]);
     return (
 
-        <div className="Filme">
-            {items.map(item => <img src={item.posterURL} alt={item.nome} id={item.id}/>)}
-        </div>
+        <ListaFilmes>
+            {filmes.map(item => 
+                <div id={item.id} onClick={()=> sessao(item.id)}>
+                    <img src={item.posterURL} alt={item.nome} id={item.id}/>
+                </div>    
+            )}
+        </ListaFilmes>
     )
 }
+
+// -------------------------------------------- Styled Components -----------------------------------------------------------
+const ListaFilmes = styled.div`
+    width: 375px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #E5E5E5;
+
+    img{
+    height: 193px;
+    width: 129px;
+    margin: 27px;
+    
+}
+    img :hover{
+        cursor: pointer;
+    }
+`
