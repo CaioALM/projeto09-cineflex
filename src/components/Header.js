@@ -7,9 +7,6 @@ export default function Header() {
     )
 }
 
-
-
-
 // ------------------------------------------- Styled Components --------------------------------------------------------
 const HeaderPage = styled.div`
     position: absolute;
